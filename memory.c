@@ -1,26 +1,27 @@
 #include "shell_main.h"
 
 /**
- * _calloc - function that allocates memory for an array, using malloc
- * @nmemb: array
+ * memory_allocate - Use malloc to allocate memory for an array
+ * @memory_array: array
  * @size: size
  * Return: pointer or NULL
  */
-void *_calloc(unsigned int nmemb, unsigned int size)
+void *memory_allocate(unsigned int memory_array, unsigned int size)
 {
 	unsigned int index = 0;
-	char *ptr = NULL;
+	char *memory_pointer = NULL;
 
-	if (nmemb == 0 || size == 0)
+	if (memory_array == 0 || size == 0)
 		return (NULL);
 
-	ptr = malloc(nmemb * size);
+	memory_pointer = malloc(memory_array * size);
 
-	if (ptr == NULL)
+	if (memory_pointer == NULL)
 		return (NULL);
 
-	for (; index < (nmemb * size); index++)
-		ptr[index] = 0;
+	for (; index < (memory_array * size); index++)
+		memory_pointer[index] = 0;
 
-	return (ptr);
+	return (memory_pointer);
 }
+

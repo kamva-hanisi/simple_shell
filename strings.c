@@ -20,34 +20,6 @@ int string_compare(char *first_str, char *second_str)
 }
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
- * print_string - print a string
- * @str: pointer char
- * Return: void
- */
-void print_string(char *str)
-{
-	int i;
-
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		_putchar(str[i]);
-	}
-	_putchar('\n');
-	return;
-}
-
-/**
  * split_args - split string in pieces
  * @str: string to split
  * @separator: string separator
@@ -59,7 +31,7 @@ char **split_args(char *str, char *separator)
 	int i = 0;
 
 	aux = strtok(str, separator);
-	split = (char **)_calloc(100, sizeof(char *));
+	split = (char **)memory_allocate(100, sizeof(char *));
 
 	if (!split)
 	{
@@ -133,3 +105,4 @@ int get_str_len(char *str)
 
 	return (i);
 }
+

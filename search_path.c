@@ -17,7 +17,6 @@ char *path_search(char *command)
 	copy_path = malloc(get_str_len(path) + 1);
 	copy_path = string_copy(copy_path, path);
 
-	// If command path is not correct, let's build our own command path
 	path_split = split_args(copy_path, ":");
 
 	while (path_split[i])
@@ -34,7 +33,6 @@ char *path_search(char *command)
 			found_command = 1;
 			break;
 		}
-
 		i++;
 	}
 
@@ -47,3 +45,4 @@ char *path_search(char *command)
 
 	return (path_concat);
 }
+

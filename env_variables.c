@@ -10,6 +10,7 @@ void print_env_variables(void)
 	while (environ[i])
 	{
 		print_string(environ[i]);
+		_putchar('\n');
 		i++;
 	}
 }
@@ -19,7 +20,6 @@ void print_env_variables(void)
  * @env_var: env variable
  * Return: env variable result, its content
  */
-
 char *get_env_variable(char *env_var)
 {
 	int i = 0, j;
@@ -40,3 +40,4 @@ char *get_env_variable(char *env_var)
 	}
 	return (&environ[i][j + 1]);
 }
+

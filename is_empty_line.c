@@ -5,7 +5,6 @@
  * @buffer: input line
  * Return: 0 or 1 (int)
  */
-
 int is_empty_line(char *buffer)
 {
 	int i;
@@ -17,3 +16,4 @@ int is_empty_line(char *buffer)
 	}
 	return (1);
 }
+
