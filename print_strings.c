@@ -25,6 +25,5 @@ void print_string(char *str)
 		_putchar(str[i]);
 	}
 
-	return;
 }
 

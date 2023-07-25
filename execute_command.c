@@ -1,7 +1,7 @@
 #include "shell_main.h"
 
 /**
- * execute - execute command path, child process
+ * execute_command - execute command path, child process
  * @buffer: Buffer
  * @script_file: Executing file
  * @infinite_count: Infinite counting

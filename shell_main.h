@@ -29,6 +29,7 @@ ssize_t read_textfile(const char *filename);
 int read_arguments(char **argv);
 int execute_command(char *buffer, char *script_file, int infinite_count);
 int print_int(int number);
+int infinite_loop(char *argv);
 
 /* GLOBAL VAR*/
 extern char **environ;

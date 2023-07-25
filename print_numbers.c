@@ -36,7 +36,7 @@ int big_numbers(long int number)
 
 /**
  * print_int - Print numbers
- * @args: variable va_list
+ * @number: variable
  * Return: k (nbytes) or (NULL)
  */
 int print_int(int number)

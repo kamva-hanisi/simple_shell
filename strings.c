@@ -50,25 +50,35 @@ char **split_args(char *str, char *separator)
 
 /**
  * join_strings - Join two strings
- * @dest: string
- * @src: string
+ * @first_str: string
+ * @second_str: string
  * Return: @dest
  */
-char *join_strings(char *dest, char *src)
+char *join_strings(char *first_str, char *second_str)
 {
-	int a, b;
+	size_t length_str1 = strlen(first_str), length_str2 = strlen(second_str),
+		   i, j, total = length_str1 + length_str2 + 1;
+	char *combined_strings = (char *)malloc((total) * sizeof(char));
 
-	for (a = 0; dest[a] != '\0'; a += 1)
+	if (combined_strings == NULL)
 	{
+		perror("Memory allocation error");
+		exit(EXIT_FAILURE);
 	}
 
-	for (b = 0; src[b] != '\0'; b += 1)
+	for (i = 0; i < length_str1; i++)
 	{
-		dest[a] = src[b];
-		a++;
+		combined_strings[i] = first_str[i];
 	}
-	dest[a] = '\0';
-	return (dest);
+
+	for (j = 0; j < length_str2; j++, i++)
+	{
+		combined_strings[i] = second_str[j];
+	}
+
+	combined_strings[i] = '\0';
+
+	return (combined_strings);
 }
 
 /**

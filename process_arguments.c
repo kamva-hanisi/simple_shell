@@ -3,10 +3,13 @@
 /**
  * read_arguments - Reading contents of a file
  * @argv: argument values
+ * Return: 0 or 1
  */
 int read_arguments(char **argv)
 {
-	if (string_compare("-h", argv[1]) == 0 || string_compare("--help", argv[1]) == 0)
+	if (
+		string_compare("-h", argv[1]) == 0 ||
+		string_compare("--help", argv[1]) == 0)
 	{
 		read_textfile("help.txt");
 
