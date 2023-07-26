@@ -3,16 +3,26 @@
 /**
  * execute - execute command path, child process
  * @args: arguments
+ * @script_file: Executing file
+ * @infinite_count: Infinite counting
  * Return: exit status
  */
-int execute(char **args)
+int execute(char **args, char *script_file, int infinite_count)
 {
 	int id = fork(), status = 0;
 
 	if (id == 0)
 	{
 		if (execve(args[0], args, environ) == -1)
-			perror("Test");
+		{
+			status = 1;
+			print_string(script_file);
+			print_string(": ");
+			print_int(infinite_count);
+			print_string(": ");
+			print_string(args[0]);
+			print_string(": Permission denied\n");
+		}
 	}
 	else
 	{

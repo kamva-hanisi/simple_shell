@@ -1,7 +1,7 @@
 #include "shell_main.h"
 
 /**
- * execute_command - execute command path, child process
+ * execute - execute command path, child process
  * @buffer: Buffer
  * @script_file: Executing file
  * @infinite_count: Infinite counting
@@ -14,10 +14,11 @@ int execute_command(char *buffer, char *script_file, int infinite_count)
 
 	arguments = split_args(buffer, " ");
 	first_arg = arguments[0];
+
 	arguments[0] = path_search(arguments[0]);
 	if (arguments[0] != NULL)
 	{
-		exit_status = execute(arguments);
+		exit_status = execute(arguments, script_file, infinite_count);
 	}
 	else
 	{
