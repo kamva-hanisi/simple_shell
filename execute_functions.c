@@ -5,15 +5,16 @@
  * @args: arguments
  * @script_file: Executing file
  * @infinite_count: Infinite counting
+ * @env: env
  * Return: exit status
  */
-int execute(char **args, char *script_file, int infinite_count)
+int execute(char **args, char *script_file, int infinite_count, char **env)
 {
 	int id = fork(), status = 0;
 
 	if (id == 0)
 	{
-		if (execve(args[0], args, environ) == -1)
+		if (execve(args[0], args, env) == -1)
 		{
 			status = 1;
 			print_string(script_file);

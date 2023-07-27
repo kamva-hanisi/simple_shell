@@ -15,6 +15,11 @@ char *path_search(char *command)
 	if (stat(command, &info) == 0)
 		return (command);
 
+	if (path == NULL)
+	{
+		return (NULL);
+	}
+
 	copy_path = malloc(get_str_len(path) + 1);
 	copy_path = string_copy(copy_path, path);
 	path_split = split_args(copy_path, ":");

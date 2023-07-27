@@ -22,14 +22,17 @@ char *string_copy(char *destination, char *source);
 char *get_env_variable(char *env_var);
 void *memory_allocate(unsigned int nmemb, unsigned int size);
 void print_env_variables(void);
-int execute(char **args, char *script_file, int infinite_count);
+int execute(char **args, char *script_file, int infinite_count, char **env);
 int is_empty_line(char *buffer);
 void print_string(char *str);
 ssize_t read_textfile(const char *filename);
 int read_arguments(char **argv);
-int execute_command(char *buffer, char *script_file, int infinite_count);
+int execute_command(char *buffer,
+					char *script_file,
+					int infinite_count,
+					char **env);
 int print_int(int number);
-int infinite_loop(char *argv);
+int infinite_loop(char *argv, char **env);
 
 /* GLOBAL VAR*/
 extern char **environ;
