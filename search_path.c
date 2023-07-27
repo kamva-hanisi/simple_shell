@@ -7,14 +7,14 @@
  */
 char *path_search(char *command)
 {
-	char *path = getenv("PATH"),
-		 *copy_path, **path_split, *path_concat = NULL;
+	char *path, *copy_path, **path_split, *path_concat = NULL;
 	int i = 0, path_len = 0, found_command = 0;
 	struct stat info;
 
 	if (stat(command, &info) == 0)
 		return (command);
 
+	path = get_env_variable("PATH");
 	if (path == NULL)
 	{
 		return (NULL);

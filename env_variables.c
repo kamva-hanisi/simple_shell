@@ -10,7 +10,6 @@ void print_env_variables(void)
 	while (environ[i])
 	{
 		print_string(environ[i]);
-		_putchar('\n');
 		i++;
 	}
 }
@@ -22,28 +21,22 @@ void print_env_variables(void)
  */
 char *get_env_variable(char *env_var)
 {
-	int i = 0, j = 0;
-	const char *env_variable;
+	int i = 0, j;
+	int status;
 
-	for (i = 0; environ[i] != NULL; i++)
+	while (environ[i])
 	{
-		env_variable = environ[i];
+		status = 1;
 
-		while (env_variable[j] != '=' && env_variable[j] != '\0')
+		for (j = 0; environ[i][j] != '='; j++)
 		{
-			if (env_variable[j] != env_var[j])
-			{
-				break;
-			}
-			j++;
+			if (environ[i][j] != env_var[j])
+				status = 0;
 		}
-
-		if (env_variable[j] == '=' && env_var[j] == '\0')
-		{
-			return ((char *)&env_variable[j + 1]);
-		}
+		if (status == 1)
+			break;
+		i++;
 	}
-
-	return (NULL);
+	return (&environ[i][j + 1]);
 }
 
