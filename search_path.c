@@ -7,7 +7,7 @@
  */
 char *path_search(char *command)
 {
-	char *path = get_env_variable("PATH"),
+	char *path = getenv("PATH"),
 		 *copy_path, **path_split, *path_concat = NULL;
 	int i = 0, path_len = 0, found_command = 0;
 	struct stat info;
