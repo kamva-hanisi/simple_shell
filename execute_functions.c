@@ -3,18 +3,17 @@
 /**
  * execute - execute command path, child process
  * @args: arguments
- * @script_file: Executing file
- * @infinite_count: Infinite counting
- * @env: env
+ * @script_file: file
+ * @infinite_count: counting
  * Return: exit status
  */
-int execute(char **args, char *script_file, int infinite_count, char **env)
+int execute(char **args, char *script_file, int infinite_count)
 {
 	int id = fork(), status = 0;
 
 	if (id == 0)
 	{
-		if (execve(args[0], args, env) == -1)
+		if (execve(args[0], args, environ) == -1)
 		{
 			status = 1;
 			print_string(script_file);

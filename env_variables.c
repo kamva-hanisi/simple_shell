@@ -10,6 +10,7 @@ void print_env_variables(void)
 	while (environ[i])
 	{
 		print_string(environ[i]);
+		_putchar('\n');
 		i++;
 	}
 }

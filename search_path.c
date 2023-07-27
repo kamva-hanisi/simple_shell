@@ -7,18 +7,13 @@
  */
 char *path_search(char *command)
 {
-	char *path, *copy_path, **path_split, *path_concat = NULL;
+	char *path = get_env_variable("PATH"),
+		 *copy_path, **path_split, *path_concat = NULL;
 	int i = 0, path_len = 0, found_command = 0;
 	struct stat info;
 
 	if (stat(command, &info) == 0)
 		return (command);
-
-	path = get_env_variable("PATH");
-	if (path == NULL)
-	{
-		return (NULL);
-	}
 
 	copy_path = malloc(get_str_len(path) + 1);
 	copy_path = string_copy(copy_path, path);

@@ -4,10 +4,9 @@
  * main - simple shell
  * @argc: argument count
  * @argv: argument values
- * @env: env values
  * Return: int
  */
-int main(__attribute__((unused)) int argc, char **argv, char **env)
+int main(__attribute__((unused)) int argc, char **argv)
 {
 	int exit_status = 0;
 
@@ -18,7 +17,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		return (exit_status);
 	}
 
-	exit_status = infinite_loop(argv[0], env);
+	exit_status = infinite_loop(argv[0]);
 
 	return (exit_status);
 }
